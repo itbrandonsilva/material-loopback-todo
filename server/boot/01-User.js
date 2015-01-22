@@ -46,4 +46,4 @@ module.exports = function (app) {
         model: "User",
         property: "__destroyById__tasks"
     });
-}
+};
