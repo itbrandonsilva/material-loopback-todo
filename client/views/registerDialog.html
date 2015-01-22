@@ -1,0 +1,27 @@
+<md-dialog class="md-accent">
+    <md-content>
+        <form ng-submit="register($event);">
+            <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column">
+                <md-input-container>
+                    <label>Username</label>
+                    <input ng-model="form.username">
+                </md-input-container>
+            </md-content>
+            <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column">
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="form.email">
+                </md-input-container>
+            </md-content>
+            <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column">
+                <md-input-container>
+                    <label>Password</label>
+                    <input ng-model="form.password" type="password">
+                </md-input-container>
+            </md-content>
+            <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column">
+                <md-button class="md-raised" type="submit">Login</md-button>
+            </md-content>
+        </form>
+    </md-content>
+</md-dialog>

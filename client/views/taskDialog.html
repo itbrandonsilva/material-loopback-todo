@@ -1,0 +1,15 @@
+<md-dialog class="md-accent">
+    <md-content>
+        <form ng-submit="addTask($event);">
+            <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column">
+                <md-input-container>
+                    <label>Task Description</label>
+                    <input ng-model="form.description">
+                </md-input-container>
+            </md-content>
+            <md-content md-theme="docs-dark" class="md-padding" layout="row" layout-sm="column">
+                <md-button class="md-raised" type="submit">Add Task</md-button>
+            </md-content>
+        </form>
+    </md-content>
+</md-dialog>

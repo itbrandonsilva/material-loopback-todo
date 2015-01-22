@@ -1,0 +1,68 @@
+<html>
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="/components/angular-material/default-theme.css">
+    <style>
+        .md-button {
+            margin: 0.5em;
+        }
+    </style>
+
+    <script src="//cdn.jsdelivr.net/hammerjs/2.0.4/hammer.min.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-aria.min.js"></script>
+
+    <script src="/components/angular-material/angular-material.min.js"></script>
+    <script src="/app.js"></script>
+</head>
+<body ng-app="app">
+    <md-content ng-controller="TodoController">
+        <md-toolbar>
+            <section>
+                <div ng-hide="accessToken">
+                    <md-button class="md-fab" ng-click="loginDialog($event);" aria-label="Login">
+                        <i class="fa fa-sign-in fa-lg"></i>
+                    </md-button>
+                    <md-button class="md-fab" ng-click="registerDialog($event);" aria-label="Register">
+                        <i class="fa fa-user fa-lg"></i>
+                    </md-button>
+                </div>
+                <div ng-show="accessToken">
+                    <md-button class="md-fab" ng-click="logout($event);" aria-label="Logout">
+                        <i class="fa fa-sign-out fa-lg"></i>
+                    </md-button>
+                    <md-button class="md-fab" ng-click="taskDialog($event);" aria-label="New task">
+                        <i class="fa fa-tasks fa-lg"></i>
+                    </md-button>
+                    <md-button class="md-fab" ng-click="removing = !removing;" aria-label="Remove task">
+                        <i class="fa fa-remove fa-lg"></i>
+                    </md-button>
+                </div>
+            </section>
+        </md-toolbar>
+        <md-list>
+            <md-item>
+                <md-item-content ng-repeat="task in tasks">
+                    <div class="md-tile-left">
+                        <md-button ng-show="!removing && !task.completed" ng-click="updateTask($event, task.id, {completed: true});" aria-label="Complete task" class="md-raised md-primary">
+                            <i class="fa fa-check fa-lg"></i>
+                        </md-button>
+                        <md-button ng-show="!removing && task.completed" ng-click="updateTask($event, task.id, {completed: false});" aria-label="Incomplete task" class="md-raised md-primary">
+                            <i class="fa fa-refresh fa-lg"></i>
+                        </md-button>
+                        <md-button ng-show="removing" ng-click="removeTask($event, task.id);" aria-label="Remove task" class="md-raised md-warn">
+                            <i class="fa fa-close fa-lg"></i>
+                        </md-button>
+                    </div>
+                    <div class="md-tile-content">
+                        {{ task.description }}
+                    </div>
+                </md-item-content>
+            </md-item>
+        </md-list>
+    </md-content>
+</body>
+</html>
